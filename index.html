@@ -1,418 +1,518 @@
-<section class="kojima-profile">
+<section class="kojima-profile peach-system">
   <style>
-    .kojima-profile {
-      --bg: #f5f5f7;
-      --card: #ffffff;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --line: #e5e5ea;
-      --accent: #0071e3;
-      --accent-soft: #e8f2ff;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+    .peach-system {
+      --peach-bg: #fff7ec;
+      --peach-surface: #fffaf3;
+      --peach-card: #ffffff;
+      --peach-cream: #fff1dc;
+      --peach-flesh: #fff8ef;
+      --peach-blush: #e8a0a4;
+      --peach-blush-deep: #c7747b;
+      --peach-leaf: #7f9b73;
+      --peach-leaf-deep: #4f6f4d;
+      --peach-gold: #d8a84f;
+      --peach-taupe: #cdbda9;
+      --peach-umber: #6b4d3d;
+      --peach-ink: #322820;
+      --peach-muted: #7a6c60;
+      --peach-line: rgba(107, 77, 61, 0.16);
+      --peach-shadow: 0 28px 90px rgba(107, 77, 61, 0.12);
+      --peach-soft-shadow: 0 18px 54px rgba(107, 77, 61, 0.08);
 
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-        "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo,
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans JP",
+        "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
         sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      color: var(--peach-ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(232, 160, 164, 0.22), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(216, 168, 79, 0.18), transparent 30%),
+        linear-gradient(180deg, #fffaf4 0%, var(--peach-bg) 48%, #fffdf8 100%);
       line-height: 1.75;
       overflow: hidden;
     }
 
-    .kojima-profile * {
+    .peach-system * {
       box-sizing: border-box;
     }
 
-    .kojima-wrap {
-      max-width: 1040px;
+    .peach-wrap {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 88px 24px;
     }
 
-    .kojima-hero {
+    .peach-hero {
       min-height: 76vh;
       display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
       align-items: center;
-      gap: 40px;
-      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
     }
 
-    .kojima-kicker {
+    .peach-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid var(--line);
+      gap: 10px;
+      padding: 9px 15px;
+      border: 1px solid var(--peach-line);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(16px);
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      animation: fadeUp 0.8s ease both;
+      background: rgba(255, 250, 243, 0.76);
+      backdrop-filter: blur(18px);
+      color: var(--peach-umber);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      animation: peachFadeUp 0.8s ease both;
     }
 
-    .kojima-name {
-      margin: 24px 0 8px;
-      font-size: clamp(44px, 8vw, 92px);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      font-weight: 760;
-      animation: fadeUp 0.9s ease 0.08s both;
+    .peach-name {
+      margin: 28px 0 10px;
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      font-weight: 800;
+      color: var(--peach-ink);
+      animation: peachFadeUp 0.9s ease 0.08s both;
     }
 
-    .kojima-title {
+    .peach-title {
       margin: 0;
-      font-size: clamp(20px, 3vw, 32px);
-      font-weight: 650;
+      font-size: clamp(20px, 3vw, 31px);
+      font-weight: 700;
       letter-spacing: -0.03em;
-      color: var(--text);
-      animation: fadeUp 0.9s ease 0.16s both;
+      color: var(--peach-umber);
+      animation: peachFadeUp 0.9s ease 0.16s both;
     }
 
-    .kojima-lead {
-      max-width: 620px;
-      margin: 28px 0 0;
-      color: var(--muted);
+    .peach-lead {
+      max-width: 640px;
+      margin: 30px 0 0;
+      color: var(--peach-muted);
       font-size: 17px;
-      animation: fadeUp 0.9s ease 0.24s both;
+      animation: peachFadeUp 0.9s ease 0.24s both;
     }
 
-    .kojima-actions {
+    .peach-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
-      animation: fadeUp 0.9s ease 0.32s both;
+      margin-top: 34px;
+      animation: peachFadeUp 0.9s ease 0.32s both;
     }
 
-    .kojima-button {
+    .peach-button {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       padding: 12px 18px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 15px;
-      font-weight: 650;
-      transition: transform 0.25s ease, box-shadow 0.25s ease,
+      font-weight: 700;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
         background 0.25s ease;
     }
 
-    .kojima-button.primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 12px 32px rgba(0, 113, 227, 0.24);
+    .peach-button.primary {
+      color: #fffaf3;
+      background: linear-gradient(135deg, var(--peach-blush-deep), #d98f91);
+      box-shadow: 0 16px 38px rgba(199, 116, 123, 0.28);
     }
 
-    .kojima-button.secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
+    .peach-button.secondary {
+      color: var(--peach-umber);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--peach-line);
+      box-shadow: 0 10px 28px rgba(107, 77, 61, 0.07);
     }
 
-    .kojima-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    .peach-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(107, 77, 61, 0.15);
     }
 
-    .kojima-visual {
+    .peach-visual {
       position: relative;
-      min-height: 420px;
-      animation: floatIn 1s ease 0.2s both;
+      min-height: 470px;
+      animation: peachFloatIn 1s ease 0.18s both;
     }
 
-    .kojima-orb {
+    .peach-glass {
       position: absolute;
-      inset: 24px;
-      border-radius: 44px;
+      inset: 28px 18px 24px 42px;
+      border-radius: 48px;
       background:
-        radial-gradient(circle at 22% 18%, #ffffff 0 0, transparent 28%),
-        linear-gradient(135deg, #eaf4ff, #ffffff 42%, #f2f2f7);
-      box-shadow: var(--shadow);
-      transform: rotate(-2deg);
+        radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.9), transparent 30%),
+        radial-gradient(circle at 72% 30%, rgba(232, 160, 164, 0.28), transparent 32%),
+        linear-gradient(145deg, rgba(255, 247, 236, 0.96), rgba(255, 255, 255, 0.92));
+      border: 1px solid rgba(255, 255, 255, 0.84);
+      box-shadow: var(--peach-shadow);
+      transform: rotate(-2.2deg);
     }
 
-    .kojima-map-card,
-    .kojima-data-card,
-    .kojima-book-card {
+    .peach-orbit {
       position: absolute;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 28px;
+      width: 250px;
+      height: 250px;
+      right: 20px;
+      top: 0;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 38% 38%, rgba(255, 255, 255, 0.92), transparent 26%),
+        linear-gradient(135deg, rgba(255, 241, 220, 0.95), rgba(232, 160, 164, 0.38));
+      filter: blur(0.2px);
+      opacity: 0.88;
+      animation: peachSlowSpin 16s linear infinite;
+    }
+
+    .peach-map-card,
+    .peach-data-card,
+    .peach-mini-book {
+      position: absolute;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(205, 189, 169, 0.42);
+      border-radius: 30px;
       backdrop-filter: blur(20px);
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
-      transition: transform 0.35s ease;
+      box-shadow: var(--peach-soft-shadow);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
     }
 
-    .kojima-map-card:hover,
-    .kojima-data-card:hover,
-    .kojima-book-card:hover {
-      transform: translateY(-6px) scale(1.01);
+    .peach-map-card:hover,
+    .peach-data-card:hover,
+    .peach-mini-book:hover {
+      transform: translateY(-7px) scale(1.01);
+      box-shadow: 0 24px 70px rgba(107, 77, 61, 0.15);
     }
 
-    .kojima-map-card {
-      width: 76%;
+    .peach-map-card {
+      width: 78%;
       left: 0;
-      top: 56px;
-      padding: 24px;
-      animation: gentleFloat 5.5s ease-in-out infinite;
+      top: 62px;
+      padding: 25px;
+      animation: peachGentleFloat 5.6s ease-in-out infinite;
     }
 
-    .kojima-data-card {
+    .peach-data-card {
       width: 56%;
-      right: 0;
-      bottom: 76px;
+      right: 2px;
+      bottom: 86px;
       padding: 22px;
-      animation: gentleFloat 6s ease-in-out 0.7s infinite;
+      animation: peachGentleFloat 6.2s ease-in-out 0.8s infinite;
     }
 
-    .kojima-book-card {
-      width: 48%;
-      left: 32px;
-      bottom: 0;
-      padding: 18px 20px;
-      animation: gentleFloat 6.5s ease-in-out 1.2s infinite;
+    .peach-mini-book {
+      width: 50%;
+      left: 30px;
+      bottom: 6px;
+      padding: 20px;
+      animation: peachGentleFloat 6.8s ease-in-out 1.2s infinite;
     }
 
-    .kojima-card-label {
+    .peach-card-label {
       display: flex;
       align-items: center;
       gap: 8px;
       margin: 0 0 14px;
-      color: var(--muted);
+      color: var(--peach-umber);
       font-size: 13px;
-      font-weight: 650;
+      font-weight: 750;
     }
 
-    .kojima-line {
+    .peach-map-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .peach-line {
       height: 10px;
-      border-radius: 999px;
-      background: #e5e5ea;
+      margin: 11px 0;
       overflow: hidden;
-      margin: 10px 0;
+      border-radius: 999px;
+      background: rgba(205, 189, 169, 0.28);
     }
 
-    .kojima-line span {
+    .peach-line span {
       display: block;
       height: 100%;
       border-radius: inherit;
-      background: linear-gradient(90deg, #0071e3, #7fc7ff);
+      background: linear-gradient(90deg, var(--peach-leaf), var(--peach-gold), var(--peach-blush));
       transform-origin: left;
-      animation: growLine 1.2s ease both;
+      animation: peachGrowLine 1.2s ease both;
     }
 
-    .kojima-map-svg {
-      width: 100%;
-      height: auto;
-      display: block;
+    .peach-section {
+      padding: 78px 0;
     }
 
-    .kojima-section {
-      padding: 72px 0;
+    .peach-section-head {
+      max-width: 760px;
+      margin-bottom: 38px;
     }
 
-    .kojima-section-head {
-      max-width: 720px;
-      margin-bottom: 36px;
-    }
-
-    .kojima-section-title {
+    .peach-section-title {
       margin: 0;
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-      font-weight: 760;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+      font-weight: 820;
+      color: var(--peach-ink);
     }
 
-    .kojima-section-text {
-      margin: 18px 0 0;
-      color: var(--muted);
+    .peach-section-text {
+      margin: 19px 0 0;
+      color: var(--peach-muted);
       font-size: 17px;
     }
 
-    .kojima-grid {
+    .peach-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .kojima-feature {
-      min-height: 220px;
+    .peach-feature {
+      min-height: 230px;
       padding: 28px;
-      border-radius: 32px;
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 16px 56px rgba(0, 0, 0, 0.05);
-      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 243, 0.96));
+      border: 1px solid rgba(205, 189, 169, 0.42);
+      box-shadow: var(--peach-soft-shadow);
+      transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
     }
 
-    .kojima-feature:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.09);
+    .peach-feature:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 28px 74px rgba(107, 77, 61, 0.13);
     }
 
-    .kojima-icon {
-      width: 46px;
-      height: 46px;
+    .peach-icon {
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
       margin-bottom: 18px;
-      border-radius: 16px;
-      background: var(--accent-soft);
-      color: var(--accent);
+      border-radius: 18px;
+      color: var(--peach-leaf-deep);
+      background: linear-gradient(135deg, rgba(127, 155, 115, 0.16), rgba(255, 241, 220, 0.92));
+      border: 1px solid rgba(127, 155, 115, 0.16);
     }
 
-    .kojima-feature h3 {
+    .peach-feature h3 {
       margin: 0 0 10px;
       font-size: 20px;
       letter-spacing: -0.03em;
+      color: var(--peach-ink);
     }
 
-    .kojima-feature p {
+    .peach-feature p {
       margin: 0;
-      color: var(--muted);
+      color: var(--peach-muted);
       font-size: 15px;
     }
 
-    .kojima-profile-card {
+    .peach-profile-card {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 0.82fr 1.18fr;
       gap: 32px;
       align-items: stretch;
       padding: 36px;
-      border-radius: 40px;
-      background: #fff;
-      box-shadow: var(--shadow);
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 88% 10%, rgba(216, 168, 79, 0.15), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(255, 250, 243, 0.96));
+      border: 1px solid rgba(205, 189, 169, 0.42);
+      box-shadow: var(--peach-shadow);
     }
 
-    .kojima-profile-panel {
+    .peach-profile-panel {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 360px;
-      padding: 28px;
-      border-radius: 30px;
+      min-height: 368px;
+      padding: 30px;
+      overflow: hidden;
+      border-radius: 32px;
       background:
-        radial-gradient(circle at 80% 10%, #dff0ff 0 0, transparent 34%),
-        linear-gradient(160deg, #f5f5f7, #ffffff);
-      border: 1px solid var(--line);
+        radial-gradient(circle at 76% 18%, rgba(232, 160, 164, 0.24), transparent 32%),
+        linear-gradient(160deg, var(--peach-cream), #fffdf8);
+      border: 1px solid rgba(205, 189, 169, 0.48);
     }
 
-    .kojima-profile-mark {
-      width: 72px;
-      height: 72px;
-      border-radius: 24px;
+    .peach-profile-panel::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -64px;
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      background: rgba(232, 160, 164, 0.22);
+    }
+
+    .peach-profile-mark {
+      position: relative;
+      z-index: 1;
+      width: 76px;
+      height: 76px;
       display: grid;
       place-items: center;
-      background: var(--text);
-      color: #fff;
-      font-weight: 760;
+      border-radius: 26px;
+      color: #fffaf3;
+      background: linear-gradient(135deg, var(--peach-umber), #8b6752);
+      font-weight: 850;
       letter-spacing: -0.04em;
       font-size: 22px;
+      box-shadow: 0 18px 46px rgba(107, 77, 61, 0.22);
     }
 
-    .kojima-profile-panel p {
+    .peach-profile-panel p {
+      position: relative;
+      z-index: 1;
       margin: 0;
-      color: var(--muted);
+      color: var(--peach-umber);
       font-size: 15px;
+      font-weight: 650;
     }
 
-    .kojima-profile-body p {
+    .peach-profile-body p {
       margin: 0 0 18px;
+      color: #4b4038;
       font-size: 16px;
-      color: #424245;
     }
 
-    .kojima-skills {
+    .peach-skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 24px;
     }
 
-    .kojima-chip {
+    .peach-chip {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       padding: 9px 12px;
       border-radius: 999px;
-      background: #f5f5f7;
-      color: #424245;
+      color: var(--peach-umber);
+      background: rgba(255, 241, 220, 0.68);
+      border: 1px solid rgba(205, 189, 169, 0.35);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .kojima-reading {
-      margin-top: 18px;
-      padding: 26px;
-      border-radius: 32px;
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      overflow: hidden;
+    .peach-reading {
       position: relative;
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 20px;
+      padding: 28px;
+      overflow: hidden;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(232, 160, 164, 0.17), transparent 26%),
+        radial-gradient(circle at 84% 22%, rgba(216, 168, 79, 0.15), transparent 28%),
+        linear-gradient(135deg, #fffdf8, #fff2df);
+      border: 1px solid rgba(205, 189, 169, 0.48);
+      box-shadow: var(--peach-soft-shadow);
     }
 
-    .kojima-reading::after {
+    .peach-reading::after {
       content: "";
       position: absolute;
+      right: -70px;
+      top: -82px;
       width: 220px;
       height: 220px;
-      right: -70px;
-      top: -90px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.44);
     }
 
-    .kojima-reading h3 {
+    .peach-bookshelf {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 112px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(205, 189, 169, 0.45);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 -18px 40px rgba(216, 168, 79, 0.08);
+    }
+
+    .peach-reading h3 {
+      position: relative;
+      z-index: 1;
       margin: 0 0 6px;
-      font-size: 22px;
-      letter-spacing: -0.03em;
+      font-size: 24px;
+      letter-spacing: -0.035em;
+      color: var(--peach-ink);
     }
 
-    .kojima-reading p {
+    .peach-reading p {
+      position: relative;
+      z-index: 1;
       margin: 0;
-      color: rgba(255, 255, 255, 0.72);
+      color: var(--peach-muted);
       font-size: 15px;
     }
 
-    .kojima-reading a {
+    .peach-reading a {
       position: relative;
       z-index: 1;
-      flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 11px 16px;
+      padding: 12px 17px;
       border-radius: 999px;
-      background: #fff;
-      color: #111827;
+      color: #fffaf3;
+      background: linear-gradient(135deg, var(--peach-leaf-deep), var(--peach-leaf));
       text-decoration: none;
       font-size: 14px;
-      font-weight: 700;
-      transition: transform 0.25s ease;
+      font-weight: 800;
+      box-shadow: 0 16px 36px rgba(79, 111, 77, 0.22);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+      white-space: nowrap;
     }
 
-    .kojima-reading a:hover {
-      transform: translateY(-2px);
+    .peach-reading a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 46px rgba(79, 111, 77, 0.28);
     }
 
-    .reveal {
+    .peach-reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(32px);
+      transition:
+        opacity 0.86s ease,
+        transform 0.86s ease;
     }
 
-    .reveal.is-visible {
+    .peach-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    @keyframes fadeUp {
+    @keyframes peachFadeUp {
       from {
         opacity: 0;
         transform: translateY(24px);
@@ -423,10 +523,10 @@
       }
     }
 
-    @keyframes floatIn {
+    @keyframes peachFloatIn {
       from {
         opacity: 0;
-        transform: translateY(28px) scale(0.96);
+        transform: translateY(30px) scale(0.96);
       }
       to {
         opacity: 1;
@@ -434,8 +534,9 @@
       }
     }
 
-    @keyframes gentleFloat {
-      0%, 100% {
+    @keyframes peachGentleFloat {
+      0%,
+      100% {
         translate: 0 0;
       }
       50% {
@@ -443,7 +544,7 @@
       }
     }
 
-    @keyframes growLine {
+    @keyframes peachGrowLine {
       from {
         transform: scaleX(0);
       }
@@ -452,84 +553,117 @@
       }
     }
 
+    @keyframes peachSlowSpin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .kojima-profile *,
-      .kojima-profile *::before,
-      .kojima-profile *::after {
+      .peach-system *,
+      .peach-system *::before,
+      .peach-system *::after {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;
       }
 
-      .reveal {
+      .peach-reveal {
         opacity: 1;
         transform: none;
       }
     }
 
-    @media (max-width: 860px) {
-      .kojima-wrap {
-        padding: 56px 18px;
+    @media (max-width: 900px) {
+      .peach-wrap {
+        padding: 62px 18px;
       }
 
-      .kojima-hero {
-        grid-template-columns: 1fr;
+      .peach-hero {
         min-height: auto;
-      }
-
-      .kojima-visual {
-        min-height: 360px;
-      }
-
-      .kojima-grid {
         grid-template-columns: 1fr;
       }
 
-      .kojima-profile-card {
-        grid-template-columns: 1fr;
-        padding: 22px;
-        border-radius: 30px;
+      .peach-visual {
+        min-height: 410px;
       }
 
-      .kojima-reading {
-        align-items: flex-start;
-        flex-direction: column;
+      .peach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .peach-profile-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        border-radius: 34px;
+      }
+
+      .peach-reading {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .peach-bookshelf {
+        width: 100%;
+        height: 120px;
+      }
+
+      .peach-reading a {
+        justify-content: center;
+        width: fit-content;
       }
     }
 
-    @media (max-width: 520px) {
-      .kojima-name {
+    @media (max-width: 540px) {
+      .peach-name {
         font-size: 48px;
       }
 
-      .kojima-visual {
-        min-height: 320px;
+      .peach-visual {
+        min-height: 340px;
       }
 
-      .kojima-map-card {
-        width: 88%;
+      .peach-glass {
+        inset: 24px 4px 22px 16px;
       }
 
-      .kojima-data-card {
-        width: 70%;
+      .peach-orbit {
+        width: 190px;
+        height: 190px;
       }
 
-      .kojima-book-card {
-        width: 68%;
-        left: 12px;
+      .peach-map-card {
+        width: 90%;
       }
 
-      .kojima-feature {
+      .peach-data-card {
+        width: 72%;
+        bottom: 70px;
+      }
+
+      .peach-mini-book {
+        width: 72%;
+        left: 8px;
+      }
+
+      .peach-section {
+        padding: 56px 0;
+      }
+
+      .peach-feature {
         padding: 24px;
-        border-radius: 26px;
+        border-radius: 28px;
       }
     }
   </style>
 
-  <div class="kojima-wrap">
-    <div class="kojima-hero">
+  <div class="peach-wrap">
+    <div class="peach-hero">
       <div>
-        <div class="kojima-kicker">
+        <div class="peach-kicker">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
             <circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/>
@@ -537,36 +671,38 @@
           URBAN PLANNING CONSULTANT
         </div>
 
-        <h1 class="kojima-name">KOJIMA<br>Momoko</h1>
-        <p class="kojima-title">都市計画コンサルタント</p>
+        <h1 class="peach-name">KOJIMA<br>Momoko</h1>
+        <p class="peach-title">都市計画コンサルタント</p>
 
-        <p class="kojima-lead">
+        <p class="peach-lead">
           公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
           データと現場感覚のあいだをつなぎ、地域の課題や可能性が伝わる資料づくりを大切にしています。
         </p>
 
-        <div class="kojima-actions">
-          <a class="kojima-button primary" href="#kojima-about">
+        <div class="peach-actions">
+          <a class="peach-button primary" href="#kojima-about">
             プロフィールを見る
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7 12h10M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
 
-          <a class="kojima-button secondary" href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
-            ブクログ
+          <a class="peach-button secondary" href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
+            読書記録を見る
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M8 17 17 8M10 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5v-17Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M5 19a2.5 2.5 0 0 1 2.5-2.5H19" stroke="currentColor" stroke-width="1.8"/>
             </svg>
           </a>
         </div>
       </div>
 
-      <div class="kojima-visual" aria-hidden="true">
-        <div class="kojima-orb"></div>
+      <div class="peach-visual" aria-hidden="true">
+        <div class="peach-glass"></div>
+        <div class="peach-orbit"></div>
 
-        <div class="kojima-map-card">
-          <p class="kojima-card-label">
+        <div class="peach-map-card">
+          <p class="peach-card-label">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
               <path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z" stroke="currentColor" stroke-width="1.8"/>
               <path d="M9 3v15M15 6v15" stroke="currentColor" stroke-width="1.8"/>
@@ -574,35 +710,35 @@
             GIS / Spatial Analysis
           </p>
 
-          <svg class="kojima-map-svg" viewBox="0 0 360 190" fill="none">
-            <path d="M36 142C72 98 93 119 128 82C163 45 192 53 224 78C256 103 275 86 326 44" stroke="#0071e3" stroke-width="10" stroke-linecap="round"/>
-            <path d="M34 154C72 111 99 133 134 96C168 60 190 75 220 98C251 122 282 111 330 68" stroke="#c7c7cc" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="78" cy="112" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
-            <circle cx="166" cy="62" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
-            <circle cx="257" cy="101" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
-            <rect x="32" y="28" width="76" height="12" rx="6" fill="#d1e9ff"/>
-            <rect x="32" y="50" width="126" height="10" rx="5" fill="#e5e5ea"/>
-            <rect x="32" y="68" width="96" height="10" rx="5" fill="#e5e5ea"/>
+          <svg class="peach-map-svg" viewBox="0 0 360 190" fill="none">
+            <path d="M34 142C71 98 94 120 130 82C166 44 194 54 226 80C258 106 276 86 328 44" stroke="#7f9b73" stroke-width="10" stroke-linecap="round"/>
+            <path d="M34 154C74 112 100 134 135 96C169 60 191 75 222 99C252 123 282 112 330 68" stroke="#cdbda9" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="78" cy="112" r="13" fill="#fffaf3" stroke="#c7747b" stroke-width="5"/>
+            <circle cx="166" cy="62" r="13" fill="#fffaf3" stroke="#d8a84f" stroke-width="5"/>
+            <circle cx="257" cy="101" r="13" fill="#fffaf3" stroke="#7f9b73" stroke-width="5"/>
+            <rect x="32" y="28" width="82" height="12" rx="6" fill="#fff1dc"/>
+            <rect x="32" y="50" width="130" height="10" rx="5" fill="#eadfce"/>
+            <rect x="32" y="68" width="98" height="10" rx="5" fill="#eadfce"/>
           </svg>
         </div>
 
-        <div class="kojima-data-card">
-          <p class="kojima-card-label">
+        <div class="peach-data-card">
+          <p class="peach-card-label">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
               <path d="M5 19V9M12 19V5M19 19v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
             Data Visualization
           </p>
-          <div class="kojima-line"><span style="width: 86%;"></span></div>
-          <div class="kojima-line"><span style="width: 64%;"></span></div>
-          <div class="kojima-line"><span style="width: 74%;"></span></div>
+          <div class="peach-line"><span style="width: 86%;"></span></div>
+          <div class="peach-line"><span style="width: 64%;"></span></div>
+          <div class="peach-line"><span style="width: 74%;"></span></div>
         </div>
 
-        <div class="kojima-book-card">
-          <p class="kojima-card-label" style="margin-bottom: 0;">
+        <div class="peach-mini-book">
+          <p class="peach-card-label" style="margin-bottom: 0;">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
-              <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5v-17Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M5 19a2.5 2.5 0 0 1 2.5-2.5H19" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M4 19.5c2.5-1.4 5-1.4 7.5 0V5.7C9 4.3 6.5 4.3 4 5.7v13.8Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M20 19.5c-2.5-1.4-5-1.4-7.5 0V5.7c2.5-1.4 5-1.4 7.5 0v13.8Z" stroke="currentColor" stroke-width="1.8"/>
             </svg>
             Reading Log
           </p>
@@ -610,18 +746,18 @@
       </div>
     </div>
 
-    <section class="kojima-section reveal">
-      <div class="kojima-section-head">
-        <h2 class="kojima-section-title">地域の情報を、使える形へ。</h2>
-        <p class="kojima-section-text">
+    <section class="peach-section peach-reveal">
+      <div class="peach-section-head">
+        <h2 class="peach-section-title">地域の情報を、使える形へ。</h2>
+        <p class="peach-section-text">
           数字、地図、制度、現場の声。ばらばらに見える情報を整理し、
           計画づくりや合意形成に使える資料へ落とし込むことを得意としています。
         </p>
       </div>
 
-      <div class="kojima-grid">
-        <article class="kojima-feature">
-          <div class="kojima-icon">
+      <div class="peach-grid">
+        <article class="peach-feature">
+          <div class="peach-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z" stroke="currentColor" stroke-width="1.8"/>
               <path d="M9 3v15M15 6v15" stroke="currentColor" stroke-width="1.8"/>
@@ -633,8 +769,8 @@
           </p>
         </article>
 
-        <article class="kojima-feature">
-          <div class="kojima-icon">
+        <article class="peach-feature">
+          <div class="peach-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M4 17h16M6 17V9.5A3.5 3.5 0 0 1 9.5 6h5A3.5 3.5 0 0 1 18 9.5V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               <path d="M8 17v2M16 17v2M8 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -646,8 +782,8 @@
           </p>
         </article>
 
-        <article class="kojima-feature">
-          <div class="kojima-icon">
+        <article class="peach-feature">
+          <div class="peach-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7 4h10a2 2 0 0 1 2 2v14l-4-2-3 2-3-2-4 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
               <path d="M8 9h8M8 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
@@ -661,10 +797,10 @@
       </div>
     </section>
 
-    <section id="kojima-about" class="kojima-section reveal">
-      <div class="kojima-profile-card">
-        <div class="kojima-profile-panel">
-          <div class="kojima-profile-mark">KM</div>
+    <section id="kojima-about" class="peach-section peach-reveal">
+      <div class="peach-profile-card">
+        <div class="peach-profile-panel">
+          <div class="peach-profile-mark">KM</div>
           <p>
             Urban Planning<br>
             Public Transport<br>
@@ -672,7 +808,7 @@
           </p>
         </div>
 
-        <div class="kojima-profile-body">
+        <div class="peach-profile-body">
           <p>
             都市計画コンサルタントとして、公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
             これまで国内外の都市交通プロジェクトに関わり、現在は主に国内の自治体業務を中心に、地域の移動や暮らしを支えるための基礎調査、データ分析、資料作成などを行っています。
@@ -687,23 +823,37 @@
             分析だけで終わらせず、計画や合意形成、説明資料に活かせる情報設計を心がけています。
           </p>
 
-          <div class="kojima-skills">
-            <span class="kojima-chip">都市計画</span>
-            <span class="kojima-chip">地域公共交通</span>
-            <span class="kojima-chip">道路バリアフリー</span>
-            <span class="kojima-chip">QGIS</span>
-            <span class="kojima-chip">モバイルビッグデータ</span>
-            <span class="kojima-chip">行政資料</span>
-            <span class="kojima-chip">パンフレット構成</span>
+          <div class="peach-skills">
+            <span class="peach-chip">都市計画</span>
+            <span class="peach-chip">地域公共交通</span>
+            <span class="peach-chip">道路バリアフリー</span>
+            <span class="peach-chip">QGIS</span>
+            <span class="peach-chip">モバイルビッグデータ</span>
+            <span class="peach-chip">行政資料</span>
+            <span class="peach-chip">パンフレット構成</span>
           </div>
         </div>
       </div>
 
-      <div class="kojima-reading reveal">
+      <div class="peach-reading peach-reveal">
+        <div class="peach-bookshelf" aria-hidden="true">
+          <svg width="118" height="82" viewBox="0 0 118 82" fill="none">
+            <rect x="10" y="66" width="98" height="8" rx="4" fill="#6b4d3d"/>
+            <rect x="18" y="22" width="13" height="44" rx="3" fill="#c7747b"/>
+            <rect x="35" y="14" width="14" height="52" rx="3" fill="#7f9b73"/>
+            <rect x="53" y="27" width="12" height="39" rx="3" fill="#d8a84f"/>
+            <rect x="69" y="18" width="15" height="48" rx="3" fill="#fff1dc" stroke="#cdbda9"/>
+            <path d="M90 66c10-11 10-24 0-36 12 0 19 8 19 18s-7 18-19 18Z" fill="#e8a0a4"/>
+            <path d="M93 30c4-7 10-8 16-6-3 6-8 9-16 6Z" fill="#7f9b73"/>
+            <path d="M24 29h1M42 22h1M59 34h1M76 27h1" stroke="#fffaf3" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
         <div>
-          <h3>趣味は読書です。</h3>
+          <h3>読書も、日々の観察記録。</h3>
           <p>
-            読んだ本はブクログに記録しています。仕事に直接関係する本も、そうでない本も、ゆるく蓄積中です。
+            趣味は読書です。読んだ本はブクログに記録しています。
+            仕事に直接関係する本も、そうでない本も、ゆるく蓄積中です。
           </p>
         </div>
 
@@ -719,7 +869,7 @@
 
   <script>
     (() => {
-      const targets = document.querySelectorAll(".kojima-profile .reveal");
+      const targets = document.querySelectorAll(".peach-system .peach-reveal");
 
       if (!("IntersectionObserver" in window)) {
         targets.forEach((target) => target.classList.add("is-visible"));
@@ -735,9 +885,7 @@
             }
           });
         },
-        {
-          threshold: 0.14
-        }
+        { threshold: 0.14 }
       );
 
       targets.forEach((target) => observer.observe(target));
