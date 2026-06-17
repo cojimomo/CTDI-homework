@@ -1,178 +1,746 @@
-<section class="profile-section">
+<section class="kojima-profile">
   <style>
-    .profile-section {
-      --profile-accent: #2d6a7e;
-      --profile-accent-soft: #e8f2f5;
-      --profile-text: #1a1a1a;
-      --profile-text-muted: #5c6670;
-      --profile-border: #e8ecef;
-      --profile-bg: #ffffff;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 20px;
-      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    .kojima-profile {
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #e5e5ea;
+      --accent: #0071e3;
+      --accent-soft: #e8f2ff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.75;
-      color: var(--profile-text);
-      background: var(--profile-bg);
-      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
     }
-    .profile-card {
-      padding: 0;
-      background: transparent;
+
+    .kojima-profile * {
+      box-sizing: border-box;
     }
-    .profile-label {
+
+    .kojima-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .kojima-hero {
+      min-height: 76vh;
+      display: grid;
+      align-items: center;
+      gap: 40px;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .kojima-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      color: var(--profile-accent);
-      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      animation: fadeUp 0.8s ease both;
     }
-    .profile-label::before {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--profile-accent);
-      border-radius: 1px;
+
+    .kojima-name {
+      margin: 24px 0 8px;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-weight: 760;
+      animation: fadeUp 0.9s ease 0.08s both;
     }
-    .profile-name {
-      margin: 0 0 6px;
-      font-size: clamp(26px, 5vw, 32px);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--profile-text);
-    }
-    .profile-title {
-      margin: 0 0 32px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--profile-text-muted);
-    }
-    .profile-body {
-      display: grid;
-      gap: 20px;
-    }
-    .profile-text {
+
+    .kojima-title {
       margin: 0;
-      font-size: 15px;
-      color: var(--profile-text);
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      animation: fadeUp 0.9s ease 0.16s both;
     }
-    .profile-skills {
-      margin: 8px 0 0;
-      padding: 24px 0 0;
-      border-top: 1px solid var(--profile-border);
+
+    .kojima-lead {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      animation: fadeUp 0.9s ease 0.24s both;
     }
-    .profile-skills-title {
-      margin: 0 0 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--profile-text-muted);
-      text-transform: uppercase;
+
+    .kojima-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+      animation: fadeUp 0.9s ease 0.32s both;
     }
-    .profile-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-    .profile-list li {
-      position: relative;
-      padding-left: 18px;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--profile-text);
-    }
-    .profile-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--profile-accent);
-      transform: translateY(-50%);
-    }
-    .profile-note {
-      margin: 0;
-      padding: 20px 0 0;
-      border-top: 1px solid var(--profile-border);
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--profile-text-muted);
-    }
-    .profile-link {
-      margin: 0;
-      padding: 20px 0 0;
-      border-top: 1px solid var(--profile-border);
-      font-size: 14px;
-      color: var(--profile-text-muted);
-    }
-    .profile-link a {
+
+    .kojima-button {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      color: var(--profile-accent);
-      font-weight: 600;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
       text-decoration: none;
-      transition: opacity 0.15s ease;
+      font-size: 15px;
+      font-weight: 650;
+      transition: transform 0.25s ease, box-shadow 0.25s ease,
+        background 0.25s ease;
     }
-    .profile-link a::after {
-      content: "→";
+
+    .kojima-button.primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(0, 113, 227, 0.24);
+    }
+
+    .kojima-button.secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .kojima-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    }
+
+    .kojima-visual {
+      position: relative;
+      min-height: 420px;
+      animation: floatIn 1s ease 0.2s both;
+    }
+
+    .kojima-orb {
+      position: absolute;
+      inset: 24px;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 22% 18%, #ffffff 0 0, transparent 28%),
+        linear-gradient(135deg, #eaf4ff, #ffffff 42%, #f2f2f7);
+      box-shadow: var(--shadow);
+      transform: rotate(-2deg);
+    }
+
+    .kojima-map-card,
+    .kojima-data-card,
+    .kojima-book-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.08);
+      transition: transform 0.35s ease;
+    }
+
+    .kojima-map-card:hover,
+    .kojima-data-card:hover,
+    .kojima-book-card:hover {
+      transform: translateY(-6px) scale(1.01);
+    }
+
+    .kojima-map-card {
+      width: 76%;
+      left: 0;
+      top: 56px;
+      padding: 24px;
+      animation: gentleFloat 5.5s ease-in-out infinite;
+    }
+
+    .kojima-data-card {
+      width: 56%;
+      right: 0;
+      bottom: 76px;
+      padding: 22px;
+      animation: gentleFloat 6s ease-in-out 0.7s infinite;
+    }
+
+    .kojima-book-card {
+      width: 48%;
+      left: 32px;
+      bottom: 0;
+      padding: 18px 20px;
+      animation: gentleFloat 6.5s ease-in-out 1.2s infinite;
+    }
+
+    .kojima-card-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      color: var(--muted);
       font-size: 13px;
-      transition: transform 0.15s ease;
+      font-weight: 650;
     }
-    .profile-link a:hover {
-      opacity: 0.7;
+
+    .kojima-line {
+      height: 10px;
+      border-radius: 999px;
+      background: #e5e5ea;
+      overflow: hidden;
+      margin: 10px 0;
     }
-    .profile-link a:hover::after {
-      transform: translateX(3px);
+
+    .kojima-line span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #0071e3, #7fc7ff);
+      transform-origin: left;
+      animation: growLine 1.2s ease both;
+    }
+
+    .kojima-map-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .kojima-section {
+      padding: 72px 0;
+    }
+
+    .kojima-section-head {
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+
+    .kojima-section-title {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      font-weight: 760;
+    }
+
+    .kojima-section-text {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .kojima-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .kojima-feature {
+      min-height: 220px;
+      padding: 28px;
+      border-radius: 32px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 16px 56px rgba(0, 0, 0, 0.05);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .kojima-feature:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.09);
+    }
+
+    .kojima-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .kojima-feature h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .kojima-feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .kojima-profile-card {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
+      align-items: stretch;
+      padding: 36px;
+      border-radius: 40px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .kojima-profile-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 360px;
+      padding: 28px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 80% 10%, #dff0ff 0 0, transparent 34%),
+        linear-gradient(160deg, #f5f5f7, #ffffff);
+      border: 1px solid var(--line);
+    }
+
+    .kojima-profile-mark {
+      width: 72px;
+      height: 72px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: var(--text);
+      color: #fff;
+      font-weight: 760;
+      letter-spacing: -0.04em;
+      font-size: 22px;
+    }
+
+    .kojima-profile-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .kojima-profile-body p {
+      margin: 0 0 18px;
+      font-size: 16px;
+      color: #424245;
+    }
+
+    .kojima-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .kojima-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      color: #424245;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .kojima-reading {
+      margin-top: 18px;
+      padding: 26px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .kojima-reading::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .kojima-reading h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .kojima-reading p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+    }
+
+    .kojima-reading a {
+      position: relative;
+      z-index: 1;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: #fff;
+      color: #111827;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+
+    .kojima-reading a:hover {
+      transform: translateY(-2px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% {
+        translate: 0 0;
+      }
+      50% {
+        translate: 0 -12px;
+      }
+    }
+
+    @keyframes growLine {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kojima-profile *,
+      .kojima-profile *::before,
+      .kojima-profile *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .kojima-wrap {
+        padding: 56px 18px;
+      }
+
+      .kojima-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .kojima-visual {
+        min-height: 360px;
+      }
+
+      .kojima-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kojima-profile-card {
+        grid-template-columns: 1fr;
+        padding: 22px;
+        border-radius: 30px;
+      }
+
+      .kojima-reading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .kojima-name {
+        font-size: 48px;
+      }
+
+      .kojima-visual {
+        min-height: 320px;
+      }
+
+      .kojima-map-card {
+        width: 88%;
+      }
+
+      .kojima-data-card {
+        width: 70%;
+      }
+
+      .kojima-book-card {
+        width: 68%;
+        left: 12px;
+      }
+
+      .kojima-feature {
+        padding: 24px;
+        border-radius: 26px;
+      }
     }
   </style>
-  <div class="profile-card">
-    <span class="profile-label">Profile</span>
-    <h2 class="profile-name">小島 桃子</h2>
-    <p class="profile-title">都市計画コンサルタント</p>
-    <div class="profile-body">
-      <p class="profile-text">
-        都市計画コンサルタントとして、公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
-        これまで国内外の都市交通プロジェクトに関わり、現在は主に国内の自治体業務を中心に、地域の移動や暮らしを支えるための基礎調査、データ分析、資料作成などを行っています。
-      </p>
-      <p class="profile-text">
-        業務では、QGISを用いた地理空間データの整理・可視化、モバイルビッグデータ等を活用した地域分析、公共交通に関する利用実態の把握、住民・利用者向け資料の作成などを担当。
-        複雑な情報を、行政担当者や地域の方に伝わる形へ整理することを大切にしています。
-      </p>
-      <p class="profile-text">
-        専門的なデータや制度の話であっても、最終的には「地域で暮らす人にとって何が変わるのか」「現場でどう使えるのか」が伝わることが重要だと考えています。
-        分析だけで終わらせず、計画や合意形成、説明資料に活かせる情報設計を心がけています。
-      </p>
+
+  <div class="kojima-wrap">
+    <div class="kojima-hero">
+      <div>
+        <div class="kojima-kicker">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          URBAN PLANNING CONSULTANT
+        </div>
+
+        <h1 class="kojima-name">KOJIMA<br>Momoko</h1>
+        <p class="kojima-title">都市計画コンサルタント</p>
+
+        <p class="kojima-lead">
+          公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
+          データと現場感覚のあいだをつなぎ、地域の課題や可能性が伝わる資料づくりを大切にしています。
+        </p>
+
+        <div class="kojima-actions">
+          <a class="kojima-button primary" href="#kojima-about">
+            プロフィールを見る
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 12h10M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <a class="kojima-button secondary" href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
+            ブクログ
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 17 17 8M10 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="kojima-visual" aria-hidden="true">
+        <div class="kojima-orb"></div>
+
+        <div class="kojima-map-card">
+          <p class="kojima-card-label">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 3v15M15 6v15" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            GIS / Spatial Analysis
+          </p>
+
+          <svg class="kojima-map-svg" viewBox="0 0 360 190" fill="none">
+            <path d="M36 142C72 98 93 119 128 82C163 45 192 53 224 78C256 103 275 86 326 44" stroke="#0071e3" stroke-width="10" stroke-linecap="round"/>
+            <path d="M34 154C72 111 99 133 134 96C168 60 190 75 220 98C251 122 282 111 330 68" stroke="#c7c7cc" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="78" cy="112" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
+            <circle cx="166" cy="62" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
+            <circle cx="257" cy="101" r="13" fill="#fff" stroke="#0071e3" stroke-width="5"/>
+            <rect x="32" y="28" width="76" height="12" rx="6" fill="#d1e9ff"/>
+            <rect x="32" y="50" width="126" height="10" rx="5" fill="#e5e5ea"/>
+            <rect x="32" y="68" width="96" height="10" rx="5" fill="#e5e5ea"/>
+          </svg>
+        </div>
+
+        <div class="kojima-data-card">
+          <p class="kojima-card-label">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <path d="M5 19V9M12 19V5M19 19v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Data Visualization
+          </p>
+          <div class="kojima-line"><span style="width: 86%;"></span></div>
+          <div class="kojima-line"><span style="width: 64%;"></span></div>
+          <div class="kojima-line"><span style="width: 74%;"></span></div>
+        </div>
+
+        <div class="kojima-book-card">
+          <p class="kojima-card-label" style="margin-bottom: 0;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H19v17H7.5A2.5 2.5 0 0 0 5 21.5v-17Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M5 19a2.5 2.5 0 0 1 2.5-2.5H19" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Reading Log
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="profile-skills">
-      <p class="profile-skills-title">主な業務</p>
-      <ul class="profile-list">
-        <li>都市計画・地域公共交通に関する調査、分析、計画支援</li>
-        <li>QGISを活用した地理空間データの整理・可視化</li>
-        <li>公共交通、コミュニティバス、道路バリアフリーに関する資料作成</li>
-        <li>モバイルビッグデータ等を用いた地域分析</li>
-        <li>行政資料、説明資料、パンフレット等の情報整理・構成</li>
-      </ul>
-    </div>
-    <p class="profile-note">
-      データと現場感覚のあいだをつなぎ、地域の課題や可能性が伝わる資料づくり・計画づくりを目指しています。
-    </p>
-    <p class="profile-link">
-      趣味は読書です。読んだ本はブクログに記録しています。<br>
-      <a href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
-        ブクログを見る
-      </a>
-    </p>
+
+    <section class="kojima-section reveal">
+      <div class="kojima-section-head">
+        <h2 class="kojima-section-title">地域の情報を、使える形へ。</h2>
+        <p class="kojima-section-text">
+          数字、地図、制度、現場の声。ばらばらに見える情報を整理し、
+          計画づくりや合意形成に使える資料へ落とし込むことを得意としています。
+        </p>
+      </div>
+
+      <div class="kojima-grid">
+        <article class="kojima-feature">
+          <div class="kojima-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 3v15M15 6v15" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>GIS分析</h3>
+          <p>
+            QGISを用いた地理空間データの整理・可視化を行い、地域の特徴や課題を地図上で捉えやすくします。
+          </p>
+        </article>
+
+        <article class="kojima-feature">
+          <div class="kojima-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 17h16M6 17V9.5A3.5 3.5 0 0 1 9.5 6h5A3.5 3.5 0 0 1 18 9.5V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M8 17v2M16 17v2M8 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>公共交通</h3>
+          <p>
+            地域公共交通、コミュニティバス、利用実態の把握など、移動を支える計画づくりに関わっています。
+          </p>
+        </article>
+
+        <article class="kojima-feature">
+          <div class="kojima-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 4h10a2 2 0 0 1 2 2v14l-4-2-3 2-3-2-4 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8 9h8M8 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>資料設計</h3>
+          <p>
+            行政資料、説明資料、パンフレットなど、専門的な内容を伝わる構成に整理します。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kojima-about" class="kojima-section reveal">
+      <div class="kojima-profile-card">
+        <div class="kojima-profile-panel">
+          <div class="kojima-profile-mark">KM</div>
+          <p>
+            Urban Planning<br>
+            Public Transport<br>
+            GIS / Data Analysis
+          </p>
+        </div>
+
+        <div class="kojima-profile-body">
+          <p>
+            都市計画コンサルタントとして、公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
+            これまで国内外の都市交通プロジェクトに関わり、現在は主に国内の自治体業務を中心に、地域の移動や暮らしを支えるための基礎調査、データ分析、資料作成などを行っています。
+          </p>
+
+          <p>
+            業務では、QGISを用いた地理空間データの整理・可視化、モバイルビッグデータ等を活用した地域分析、公共交通に関する利用実態の把握、住民・利用者向け資料の作成などを担当しています。
+          </p>
+
+          <p>
+            専門的なデータや制度の話であっても、最終的には「地域で暮らす人にとって何が変わるのか」「現場でどう使えるのか」が伝わることが重要だと考えています。
+            分析だけで終わらせず、計画や合意形成、説明資料に活かせる情報設計を心がけています。
+          </p>
+
+          <div class="kojima-skills">
+            <span class="kojima-chip">都市計画</span>
+            <span class="kojima-chip">地域公共交通</span>
+            <span class="kojima-chip">道路バリアフリー</span>
+            <span class="kojima-chip">QGIS</span>
+            <span class="kojima-chip">モバイルビッグデータ</span>
+            <span class="kojima-chip">行政資料</span>
+            <span class="kojima-chip">パンフレット構成</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="kojima-reading reveal">
+        <div>
+          <h3>趣味は読書です。</h3>
+          <p>
+            読んだ本はブクログに記録しています。仕事に直接関係する本も、そうでない本も、ゆるく蓄積中です。
+          </p>
+        </div>
+
+        <a href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
+          ブクログを見る
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 17 17 8M10 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
   </div>
+
+  <script>
+    (() => {
+      const targets = document.querySelectorAll(".kojima-profile .reveal");
+
+      if (!("IntersectionObserver" in window)) {
+        targets.forEach((target) => target.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.14
+        }
+      );
+
+      targets.forEach((target) => observer.observe(target));
+    })();
+  </script>
 </section>
