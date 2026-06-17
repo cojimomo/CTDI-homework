@@ -1,112 +1,178 @@
 <section class="profile-section">
   <style>
     .profile-section {
-      max-width: 760px;
+      --profile-accent: #2d6a7e;
+      --profile-accent-soft: #e8f2f5;
+      --profile-text: #1a1a1a;
+      --profile-text-muted: #5c6670;
+      --profile-border: #e8ecef;
+      --profile-bg: #ffffff;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 40px 24px;
+      padding: 48px 20px;
       font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.8;
-      color: #333;
-      background: #fff;
+      line-height: 1.75;
+      color: var(--profile-text);
+      background: var(--profile-bg);
+      -webkit-font-smoothing: antialiased;
     }
-
     .profile-card {
-      border: 1px solid #e5e5e5;
-      border-radius: 16px;
-      padding: 32px;
-      background: #fafafa;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      padding: 0;
+      background: transparent;
     }
-
     .profile-label {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 4px 12px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      color: #666;
-      background: #eeeeee;
-      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--profile-accent);
+      text-transform: uppercase;
     }
-
+    .profile-label::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--profile-accent);
+      border-radius: 1px;
+    }
     .profile-name {
-      margin: 0 0 8px;
-      font-size: 28px;
+      margin: 0 0 6px;
+      font-size: clamp(26px, 5vw, 32px);
       font-weight: 700;
-      color: #222;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--profile-text);
     }
-
     .profile-title {
-      margin: 0 0 24px;
-      font-size: 16px;
-      color: #666;
+      margin: 0 0 32px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--profile-text-muted);
     }
-
+    .profile-body {
+      display: grid;
+      gap: 20px;
+    }
     .profile-text {
-      margin: 0 0 20px;
-      font-size: 16px;
+      margin: 0;
+      font-size: 15px;
+      color: var(--profile-text);
     }
-
+    .profile-skills {
+      margin: 8px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--profile-border);
+    }
+    .profile-skills-title {
+      margin: 0 0 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--profile-text-muted);
+      text-transform: uppercase;
+    }
     .profile-list {
-      margin: 24px 0 0;
+      margin: 0;
       padding: 0;
       list-style: none;
+      display: grid;
+      gap: 10px;
     }
-
     .profile-list li {
       position: relative;
-      padding-left: 1.4em;
-      margin-bottom: 10px;
-      font-size: 15px;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--profile-text);
     }
-
     .profile-list li::before {
-      content: "・";
+      content: "";
       position: absolute;
       left: 0;
-      color: #777;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--profile-accent);
+      transform: translateY(-50%);
     }
-
     .profile-note {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid #e0e0e0;
-      font-size: 15px;
-      color: #555;
+      margin: 0;
+      padding: 20px 0 0;
+      border-top: 1px solid var(--profile-border);
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--profile-text-muted);
+    }
+    .profile-link {
+      margin: 0;
+      padding: 20px 0 0;
+      border-top: 1px solid var(--profile-border);
+      font-size: 14px;
+      color: var(--profile-text-muted);
+    }
+    .profile-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      color: var(--profile-accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    .profile-link a::after {
+      content: "→";
+      font-size: 13px;
+      transition: transform 0.15s ease;
+    }
+    .profile-link a:hover {
+      opacity: 0.7;
+    }
+    .profile-link a:hover::after {
+      transform: translateX(3px);
     }
   </style>
-
   <div class="profile-card">
-    <span class="profile-label">PROFILE</span>
-
-    <h2 class="profile-name">K. M.</h2>
+    <span class="profile-label">Profile</span>
+    <h2 class="profile-name">小島 桃子</h2>
     <p class="profile-title">都市計画コンサルタント</p>
-
-    <p class="profile-text">
-      都市計画コンサルタントとして、公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
-      これまで国内外の都市交通プロジェクトに関わり、現在は主に国内の自治体業務を中心に、地域の移動や暮らしを支えるための基礎調査、データ分析、資料作成などを行っています。
-    </p>
-
-    <p class="profile-text">
-      業務では、QGISを用いた地理空間データの整理・可視化、モバイルビッグデータ等を活用した地域分析、公共交通に関する利用実態の把握、住民・利用者向け資料の作成などを担当。
-      複雑な情報を、行政担当者や地域の方に伝わる形へ整理することを大切にしています。
-    </p>
-
-    <p class="profile-text">
-      専門的なデータや制度の話であっても、最終的には「地域で暮らす人にとって何が変わるのか」「現場でどう使えるのか」が伝わることが重要だと考えています。
-      分析だけで終わらせず、計画や合意形成、説明資料に活かせる情報設計を心がけています。
-    </p>
-
-    <ul class="profile-list">
-      <li>都市計画・地域公共交通に関する調査、分析、計画支援</li>
-      <li>QGISを活用した地理空間データの整理・可視化</li>
-      <li>公共交通、コミュニティバス、道路バリアフリーに関する資料作成</li>
-      <li>モバイルビッグデータ等を用いた地域分析</li>
-      <li>行政資料、説明資料、パンフレット等の情報整理・構成</li>
-    </ul>
-
+    <div class="profile-body">
+      <p class="profile-text">
+        都市計画コンサルタントとして、公共交通、道路バリアフリー、まちづくりに関する調査・分析・計画づくりに携わっています。
+        これまで国内外の都市交通プロジェクトに関わり、現在は主に国内の自治体業務を中心に、地域の移動や暮らしを支えるための基礎調査、データ分析、資料作成などを行っています。
+      </p>
+      <p class="profile-text">
+        業務では、QGISを用いた地理空間データの整理・可視化、モバイルビッグデータ等を活用した地域分析、公共交通に関する利用実態の把握、住民・利用者向け資料の作成などを担当。
+        複雑な情報を、行政担当者や地域の方に伝わる形へ整理することを大切にしています。
+      </p>
+      <p class="profile-text">
+        専門的なデータや制度の話であっても、最終的には「地域で暮らす人にとって何が変わるのか」「現場でどう使えるのか」が伝わることが重要だと考えています。
+        分析だけで終わらせず、計画や合意形成、説明資料に活かせる情報設計を心がけています。
+      </p>
+    </div>
+    <div class="profile-skills">
+      <p class="profile-skills-title">主な業務</p>
+      <ul class="profile-list">
+        <li>都市計画・地域公共交通に関する調査、分析、計画支援</li>
+        <li>QGISを活用した地理空間データの整理・可視化</li>
+        <li>公共交通、コミュニティバス、道路バリアフリーに関する資料作成</li>
+        <li>モバイルビッグデータ等を用いた地域分析</li>
+        <li>行政資料、説明資料、パンフレット等の情報整理・構成</li>
+      </ul>
+    </div>
     <p class="profile-note">
       データと現場感覚のあいだをつなぎ、地域の課題や可能性が伝わる資料づくり・計画づくりを目指しています。
+    </p>
+    <p class="profile-link">
+      趣味は読書です。読んだ本はブクログに記録しています。<br>
+      <a href="https://booklog.jp/users/itmmc" target="_blank" rel="noopener noreferrer">
+        ブクログを見る
+      </a>
     </p>
   </div>
 </section>
